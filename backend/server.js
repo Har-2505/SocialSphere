@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 
 const authRoutes = require("./routes/authRoutes");
-
+const postRoutes = require("./routes/postRoutes");
 dotenv.config();
 connectDB();
 
@@ -13,7 +13,7 @@ app.use(express.json());
 
 // routes
 app.use("/api/auth", authRoutes);
-
+app.use("/api/posts", postRoutes);
 app.get("/", (req, res) => {
   res.send("SocialSphere Backend Running");
 });
