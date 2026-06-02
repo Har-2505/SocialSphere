@@ -6,7 +6,7 @@ const connectDB = require("./config/db");
 connectDB();
 const authRoutes = require("./routes/authRoutes");
 const postRoutes = require("./routes/postRoutes");
-
+const uploadRoutes = require("./routes/uploadRoutes");
 
 console.log("MONGO URI:", process.env.MONGO_URI);
 
@@ -19,7 +19,7 @@ app.use(express.json());
 // routes
 app.use("/api/auth", authRoutes);
 app.use("/api/posts", postRoutes);
-
+app.use("/api/upload", uploadRoutes);
 app.get("/", (req, res) => {
   res.send("SocialSphere Backend Running");
 });
