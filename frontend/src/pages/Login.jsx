@@ -1,3 +1,4 @@
+import "./Login.css";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import api from "../services/api";
@@ -33,36 +34,58 @@ function Login() {
   };
 
   return (
-    <div>
-      <h2>Login Page</h2>
+    <div className="login-container">
+      <div className="login-card">
 
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
+        <h1 className="login-title">
+          SocialSphere 🚀
+        </h1>
 
-        <br />
-        <br />
+        <p className="login-subtitle">
+          Connect with the world
+        </p>
 
-        <input
-          type="password"
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <form onSubmit={handleLogin}>
 
-        <br />
-        <br />
+          <input
+            className="login-input"
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) =>
+              setEmail(e.target.value)
+            }
+            required
+          />
 
-        <button type="submit">
-          Login
-        </button>
-        <p>
-  Don't have an account?
-  <Link to="/register"> Sign Up</Link>
-</p>
-      </form>
+          <input
+            className="login-input"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) =>
+              setPassword(e.target.value)
+            }
+            required
+          />
+
+          <button
+            className="login-btn"
+            type="submit"
+          >
+            Login
+          </button>
+
+        </form>
+
+        <p className="signup-link">
+          Don't have an account?
+          <Link to="/register">
+            {" "}Sign Up
+          </Link>
+        </p>
+
+      </div>
     </div>
   );
 }
