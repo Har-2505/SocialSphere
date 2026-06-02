@@ -1,9 +1,18 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Feed from "./pages/Feed";
+
 function App() {
   return (
-    <div>
-      <h1>SocialSphere 🚀</h1>
-      <p>Frontend is working</p>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/feed" element={<Feed />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
