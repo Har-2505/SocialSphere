@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 
 function Login() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,11 +21,14 @@ function Login() {
 
       alert("Login Successful");
 
-      console.log(res.data);
-
+      navigate("/feed");
     } catch (error) {
-      alert("Login Failed");
       console.log(error);
+
+      alert(
+        error.response?.data?.message ||
+        error.message
+      );
     }
   };
 
@@ -34,22 +40,20 @@ function Login() {
         <input
           type="email"
           placeholder="Email"
-          onChange={(e) =>
-            setEmail(e.target.value)
-          }
+          onChange={(e) => setEmail(e.target.value)}
         />
 
-        <br /><br />
+        <br />
+        <br />
 
         <input
           type="password"
           placeholder="Password"
-          onChange={(e) =>
-            setPassword(e.target.value)
-          }
+          onChange={(e) => setPassword(e.target.value)}
         />
 
-        <br /><br />
+        <br />
+        <br />
 
         <button type="submit">
           Login
