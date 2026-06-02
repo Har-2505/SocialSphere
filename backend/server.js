@@ -1,0 +1,31 @@
+const express = require("express");
+const cors = require("cors");
+const dotenv = require("dotenv");
+
+const connectDB = require("./config/db");
+
+const authRoutes = require("./routes/authRoutes");
+const postRoutes = require("./routes/postRoutes");
+
+dotenv.config();
+connectDB();
+
+const app = express();
+
+// IMPORTANT
+app.use(cors()); // Allow CORS for the frontend
+app.use(express.json());
+
+// routes
+app.use("/api/auth", authRoutes);
+app.use("/api/posts", postRoutes);
+
+app.get("/", (req, res) => {
+  res.send("SocialSphere Backend Running");
+});
+
+const PORT = process.env.PORT || 5001;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
