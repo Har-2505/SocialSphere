@@ -7,15 +7,23 @@ function Navbar() {
   };
 
   return (
-    <nav
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        padding: "15px 30px",
-        background: "#24292e",
-        color: "white",
-      }}
-    >
+  <nav
+  style={{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    background: "#24292e",
+    padding: "15px 30px",
+    color: "white",
+
+    position: "fixed",
+    top: "0",
+    left: "0",
+    width: "100%",
+    zIndex: "1000",
+    boxSizing: "border-box",
+  }}
+>
       <h2>SocialSphere 🚀</h2>
 
       <div>
